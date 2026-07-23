@@ -1,0 +1,493 @@
+{
+  "courses": [
+    {
+      "title": "Introduction to Fish Farming",
+      "description": "A comprehensive beginner-level course covering the fundamentals of fish farming in Nigeria.",
+      "level": "beginner",
+      "lessons": [
+        {
+          "title": "How to Start Fish Farming for Beginners",
+          "description": "Covers the basics of fish farming including the most reared fish species, advantages of fish farming, and types of fish housing systems.",
+          "order": 1,
+          "video_url": "https://www.youtube.com/watch?v=ahSnrXREvsA",
+          "video_duration": 617,
+          "quiz_questions": [
+            {
+              "question": "What is the most commonly reared fish species in Nigeria?",
+              "option_1": "Tilapia",
+              "option_2": "Salmon",
+              "option_3": "Trout",
+              "option_4": "Carp",
+              "correct_option": 1,
+              "explanation": "Tilapia is the most commonly reared fish species in Nigeria due to its hardiness, fast growth rate, and high market demand."
+            },
+            {
+              "question": "Which of the following is a major advantage of fish farming?",
+              "option_1": "Requires very little water",
+              "option_2": "Provides high-quality protein",
+              "option_3": "Requires no feeding",
+              "option_4": "Fish grow without oxygen",
+              "correct_option": 2,
+              "explanation": "Fish farming provides high-quality protein which is essential for human nutrition and can be a profitable business venture."
+            },
+            {
+              "question": "What type of fish housing system is most affordable for beginners?",
+              "option_1": "Concrete pond",
+              "option_2": "Backyard pond",
+              "option_3": "Tarpaulin tank",
+              "option_4": "Fiberglass tank",
+              "correct_option": 2,
+              "explanation": "Backyard ponds are the most affordable for beginners as they use existing land and require minimal construction costs."
+            }
+          ]
+        },
+        {
+          "title": "How to Start and Be Successful in Fish Farming (Part 1)",
+          "description": "Features interviews with successful fish farmers and best practices. Covers types of fish ponds, site selection, and soil type requirements.",
+          "order": 2,
+          "video_url": "https://www.youtube.com/watch?v=fVyfaum2AzY",
+          "video_duration": 375,
+          "quiz_questions": [
+            {
+              "question": "Which soil type is recommended for water retention in fish ponds?",
+              "option_1": "Sandy soil",
+              "option_2": "Clay soil",
+              "option_3": "Loamy soil",
+              "option_4": "Gravel soil",
+              "correct_option": 2,
+              "explanation": "Clay soil is recommended for fish ponds because it has excellent water retention properties, preventing excessive water loss through seepage."
+            },
+            {
+              "question": "What pH range is considered optimal for fish ponds?",
+              "option_1": "4.0 - 5.5",
+              "option_2": "6.5 - 8.5",
+              "option_3": "9.0 - 10.5",
+              "option_4": "3.0 - 4.5",
+              "correct_option": 2,
+              "explanation": "The optimal pH range for fish ponds is 6.5 to 8.5, which supports healthy fish growth and maintains good water quality."
+            }
+          ]
+        },
+        {
+          "title": "Site Selection and Pond Preparation",
+          "description": "Focuses on selecting the right location for a fish farm, checking soil type, and constructing a good fish pond.",
+          "order": 3,
+          "video_url": "https://www.youtube.com/watch?v=ahSnrXREvsA",
+          "video_duration": 617,
+          "quiz_questions": [
+            {
+              "question": "What is the primary consideration when selecting a site for a fish farm?",
+              "option_1": "Proximity to market",
+              "option_2": "Soil type and water availability",
+              "option_3": "Availability of electricity",
+              "option_4": "Nearby roads",
+              "correct_option": 2,
+              "explanation": "Soil type (preferably clay for water retention) and water availability are the primary considerations when selecting a fish farm site."
+            },
+            {
+              "question": "Why is clay soil preferred for fish pond construction?",
+              "option_1": "It is easy to dig",
+              "option_2": "It retains water well",
+              "option_3": "It has more nutrients",
+              "option_4": "It is cheaper",
+              "correct_option": 2,
+              "explanation": "Clay soil retains water well, preventing excessive seepage and maintaining stable water levels in the pond."
+            }
+          ]
+        },
+        {
+          "title": "Fish Pond Construction and Types",
+          "description": "Detailed coverage of different pond types, their advantages, and construction techniques.",
+          "order": 4,
+          "video_url": "https://www.youtube.com/watch?v=fVyfaum2AzY",
+          "video_duration": 375,
+          "quiz_questions": [
+            {
+              "question": "Which pond type is most cost-effective for beginners?",
+              "option_1": "Earthen pond",
+              "option_2": "Concrete pond",
+              "option_3": "Tarpaulin pond",
+              "option_4": "Fiberglass pond",
+              "correct_option": 1,
+              "explanation": "Earthen ponds are the most cost-effective for beginners as they require minimal construction materials and can be built using local labor and soil."
+            },
+            {
+              "question": "What is a major disadvantage of tarpaulin ponds?",
+              "option_1": "They are expensive",
+              "option_2": "They are easily damaged",
+              "option_3": "They require cement",
+              "option_4": "They need electricity",
+              "correct_option": 2,
+              "explanation": "Tarpaulin ponds are easily damaged by sharp objects, UV rays, and wear and tear, requiring regular maintenance and replacement."
+            }
+          ]
+        },
+        {
+          "title": "Fish Feeding and Water Quality Management",
+          "description": "Covers fish feeding practices including quality feed selection, quantity management, and supplementary feeds.",
+          "order": 5,
+          "video_url": "https://www.youtube.com/watch?v=ahSnrXREvsA",
+          "video_duration": 617,
+          "quiz_questions": [
+            {
+              "question": "What is the recommended feeding frequency for fish in intensive systems?",
+              "option_1": "Once daily",
+              "option_2": "Twice daily",
+              "option_3": "Three times daily",
+              "option_4": "Once weekly",
+              "correct_option": 3,
+              "explanation": "In intensive systems, fish should be fed three times daily to ensure optimal growth and minimize competition for food."
+            },
+            {
+              "question": "What is a sign of poor water quality in a fish pond?",
+              "option_1": "Clear water",
+              "option_2": "Fish gasping at the surface",
+              "option_3": "Fast fish growth",
+              "option_4": "Abundant algae",
+              "correct_option": 2,
+              "explanation": "Fish gasping at the surface is a sign of low dissolved oxygen levels, which indicates poor water quality and requires immediate action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Catfish Farming Essentials",
+      "description": "A practical guide to catfish farming covering everything from brood stock selection to harvesting and marketing.",
+      "level": "beginner",
+      "lessons": [
+        {
+          "title": "Basics of Catfish Farming",
+          "description": "Comprehensive introduction to catfish farming covering brood stock selection, sex characteristics, and spawning.",
+          "order": 1,
+          "video_url": "https://www.youtube.com/watch?v=T5ZByPCFAKc",
+          "video_duration": 402,
+          "quiz_questions": [
+            {
+              "question": "What is the primary characteristic used to identify male catfish?",
+              "option_1": "Raised muscle pads",
+              "option_2": "Round belly",
+              "option_3": "Smaller size",
+              "option_4": "Darker color",
+              "correct_option": 1,
+              "explanation": "Male catfish can be identified by raised muscle pads, which become more prominent during breeding season."
+            },
+            {
+              "question": "What is the recommended weight range for catfish brood stock?",
+              "option_1": "100-200g",
+              "option_2": "500-1000g",
+              "option_3": "1-2kg",
+              "option_4": "2-3kg",
+              "correct_option": 2,
+              "explanation": "Catfish brood stock should weigh between 500g and 1kg for optimal breeding performance."
+            }
+          ]
+        },
+        {
+          "title": "Catfish Brood Stock Selection and Spawning",
+          "description": "Detailed guidance on selecting good catfish brood stock, identifying sex characteristics, and proper spawning techniques.",
+          "order": 2,
+          "video_url": "https://www.youtube.com/watch?v=T5ZByPCFAKc",
+          "video_duration": 402,
+          "quiz_questions": [
+            {
+              "question": "How can you identify a female catfish ready for spawning?",
+              "option_1": "Raised muscle pads",
+              "option_2": "Round and swollen belly",
+              "option_3": "Darker coloration",
+              "option_4": "Aggressive behavior",
+              "correct_option": 2,
+              "explanation": "Female catfish ready for spawning will have a round and swollen belly indicating the presence of eggs."
+            }
+          ]
+        },
+        {
+          "title": "Hatchery Management and Fry Care",
+          "description": "Covers counting and weighing fries, feeding schedules, and transitioning to pellet feeds.",
+          "order": 3,
+          "video_url": "https://www.youtube.com/watch?v=T5ZByPCFAKc",
+          "video_duration": 402,
+          "quiz_questions": [
+            {
+              "question": "How often should swimming fries be fed daily?",
+              "option_1": "1-2 times",
+              "option_2": "2-4 times",
+              "option_3": "4-8 times",
+              "option_4": "8-12 times",
+              "correct_option": 3,
+              "explanation": "Swimming fries should be fed 4-8 times daily for optimal growth and survival."
+            },
+            {
+              "question": "What is the transition feed for catfish fries?",
+              "option_1": "Live worms",
+              "option_2": "Pellet feeds",
+              "option_3": "Rice bran",
+              "option_4": "Cassava flour",
+              "correct_option": 2,
+              "explanation": "Fries are transitioned to pellet feeds as they grow, with the pellet size increasing as the fish mature."
+            }
+          ]
+        },
+        {
+          "title": "Tips for Setting Up a Successful Catfish Farm",
+          "description": "Key considerations for catfish farming including species selection, growth rates, and planning.",
+          "order": 4,
+          "video_url": "https://www.youtube.com/watch?v=cVy8IjxK3c0",
+          "video_duration": 268,
+          "quiz_questions": [
+            {
+              "question": "Which catfish species is most commonly farmed in Nigeria?",
+              "option_1": "African catfish",
+              "option_2": "Vietnamese catfish",
+              "option_3": "American catfish",
+              "option_4": "European catfish",
+              "correct_option": 1,
+              "explanation": "African catfish (Clarias gariepinus) is the most commonly farmed catfish species in Nigeria."
+            }
+          ]
+        },
+        {
+          "title": "Catfish Farm Location and Environment",
+          "description": "Covers choosing the right location, water temperature requirements, and regular monitoring.",
+          "order": 5,
+          "video_url": "https://www.youtube.com/watch?v=cVy8IjxK3c0",
+          "video_duration": 268,
+          "quiz_questions": [
+            {
+              "question": "What is the ideal water temperature for catfish farming?",
+              "option_1": "50-60°F",
+              "option_2": "60-70°F",
+              "option_3": "70-80°F",
+              "option_4": "80-90°F",
+              "correct_option": 3,
+              "explanation": "The ideal water temperature for catfish farming is 70-80°F, which supports optimal growth and feed conversion."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Pond Management and Water Quality",
+      "description": "An intermediate-level course focusing on the critical aspects of pond management and water quality maintenance. This course covers practical techniques for pond preparation, fertilization, feeding, harvesting, and fish health management.",
+      "level": "intermediate",
+      "lessons": [
+        {
+          "title": "Good Aquaculture Practice: Embankment and bottom repairing",
+          "description": "Learn proper techniques for maintaining pond embankments and repairing pond bottoms to prevent water loss and ensure optimal fish habitat.",
+          "order": 1,
+          "video_url": "https://www.youtube.com/watch?v=houcLN71iT0",
+          "video_duration": 0,
+          "quiz_questions": [
+            {
+              "question": "Why is embankment maintenance important in fish ponds?",
+              "option_1": "To prevent water loss and maintain pond integrity",
+              "option_2": "To increase fish population",
+              "option_3": "To reduce feeding costs",
+              "option_4": "To improve water color",
+              "correct_option": 1,
+              "explanation": "Embankment maintenance is crucial to prevent water loss, maintain pond structure, and ensure a healthy environment for fish."
+            }
+          ]
+        },
+        {
+          "title": "Good Aquaculture Practice: Common problems and their Solutions",
+          "description": "Identify common challenges in fish farming and learn practical solutions to overcome them for successful pond management.",
+          "order": 2,
+          "video_url": "https://www.youtube.com/watch?v=MMw3v4D3PeE",
+          "video_duration": 0,
+          "quiz_questions": [
+            {
+              "question": "What is a common problem in fish farming that requires immediate attention?",
+              "option_1": "Poor water quality",
+              "option_2": "Fish color changes",
+              "option_3": "Algae growth",
+              "option_4": "All of the above",
+              "correct_option": 4,
+              "explanation": "All of these are common problems that require immediate attention to prevent fish stress and mortality."
+            }
+          ]
+        },
+        {
+          "title": "Good Aquaculture Practice: Feed Management",
+          "description": "Master feed management techniques including proper feeding schedules, quantity control, and feed quality assessment for optimal fish growth.",
+          "order": 3,
+          "video_url": "https://www.youtube.com/watch?v=DLOrGkQIsHI",
+          "video_duration": 0,
+          "quiz_questions": [
+            {
+              "question": "What is the recommended feeding frequency for fish in intensive systems?",
+              "option_1": "Once daily",
+              "option_2": "Twice daily",
+              "option_3": "Three times daily",
+              "option_4": "Once weekly",
+              "correct_option": 3,
+              "explanation": "In intensive systems, fish should be fed three times daily to ensure optimal growth and minimize competition for food."
+            }
+          ]
+        },
+        {
+          "title": "Good Aquaculture Practice: Fertilization",
+          "description": "Understand the importance of pond fertilization, proper fertilizer types, and application methods to promote natural food production for fish.",
+          "order": 4,
+          "video_url": "https://www.youtube.com/watch?v=HD-GJwFmPWU",
+          "video_duration": 0,
+          "quiz_questions": [
+            {
+              "question": "What is the primary purpose of pond fertilization?",
+              "option_1": "To kill algae",
+              "option_2": "To promote natural food production",
+              "option_3": "To increase water depth",
+              "option_4": "To reduce oxygen levels",
+              "correct_option": 2,
+              "explanation": "Pond fertilization promotes natural food production by encouraging the growth of phytoplankton and zooplankton, which serve as natural food for fish."
+            }
+          ]
+        },
+        {
+          "title": "Good Aquaculture Practice: Liming",
+          "description": "Learn the importance of liming in fish ponds, including proper application methods, timing, and benefits for water quality and fish health.",
+          "order": 5,
+          "video_url": "https://www.youtube.com/watch?v=P61AM19E0fQ",
+          "video_duration": 0,
+          "quiz_questions": [
+            {
+              "question": "What pH range is considered optimal for fish ponds after liming?",
+              "option_1": "4.0 - 5.5",
+              "option_2": "6.5 - 8.5",
+              "option_3": "9.0 - 10.5",
+              "option_4": "3.0 - 4.5",
+              "correct_option": 2,
+              "explanation": "The optimal pH range for fish ponds is 6.5 to 8.5, which supports healthy fish growth and maintains good water quality."
+            }
+          ]
+        },
+        {
+          "title": "Good Aquaculture Practice: Harvesting and handling of fish",
+          "description": "Master the techniques of proper fish harvesting, handling, and post-harvest management to maintain fish quality and maximize profits.",
+          "order": 6,
+          "video_url": "https://www.youtube.com/watch?v=vd9unqHa5no",
+          "video_duration": 0,
+          "quiz_questions": [
+            {
+              "question": "What is the best time of day to harvest fish to minimize stress?",
+              "option_1": "Early morning",
+              "option_2": "Midday",
+              "option_3": "Late evening",
+              "option_4": "Night",
+              "correct_option": 1,
+              "explanation": "Early morning is the best time to harvest fish as water temperatures are cooler and oxygen levels are higher, reducing stress on the fish."
+            }
+          ]
+        },
+        {
+          "title": "Good Aquaculture Practice: Fingerling Stocking",
+          "description": "Learn proper fingerling stocking techniques including selection, transportation, acclimatization, and optimal stocking densities.",
+          "order": 7,
+          "video_url": "https://www.youtube.com/watch?v=IGcBHdVo1Tc",
+          "video_duration": 0,
+          "quiz_questions": [
+            {
+              "question": "What is the recommended stocking density for Tilapia?",
+              "option_1": "1-2 fish/m²",
+              "option_2": "3-5 fish/m²",
+              "option_3": "8-10 fish/m²",
+              "option_4": "15-20 fish/m²",
+              "correct_option": 2,
+              "explanation": "The recommended stocking density for Tilapia is 3-5 fish per square meter to ensure optimal growth and minimize stress."
+            }
+          ]
+        },
+        {
+          "title": "Good Aquaculture Practice: Fingerling Transportation",
+          "description": "Discover best practices for transporting fingerlings safely, including proper containers, water quality management, and stress reduction techniques.",
+          "order": 8,
+          "video_url": "https://www.youtube.com/watch?v=aK-kehFIPqo",
+          "video_duration": 0,
+          "quiz_questions": [
+            {
+              "question": "What is the most important factor during fingerling transportation?",
+              "option_1": "Water temperature",
+              "option_2": "Oxygen levels",
+              "option_3": "Container size",
+              "option_4": "Transport duration",
+              "correct_option": 2,
+              "explanation": "Oxygen levels are the most critical factor during fingerling transportation to prevent suffocation and ensure survival."
+            }
+          ]
+        },
+        {
+          "title": "Good Aquaculture Practice: SIS Collection and Transportation",
+          "description": "Learn about Small Indigenous Species (SIS) collection methods and proper transportation techniques for maintaining their health and survival.",
+          "order": 9,
+          "video_url": "https://www.youtube.com/watch?v=eo6M4WMx8ok",
+          "video_duration": 0,
+          "quiz_questions": [
+            {
+              "question": "What is a key consideration when collecting Small Indigenous Species (SIS)?",
+              "option_1": "Using small mesh nets",
+              "option_2": "Maintaining water quality",
+              "option_3": "Proper handling",
+              "option_4": "All of the above",
+              "correct_option": 4,
+              "explanation": "All of these are important when collecting SIS to ensure the health and survival of these small fish species."
+            }
+          ]
+        },
+        {
+          "title": "Good Aquaculture Practice: Sampling and its importance",
+          "description": "Understand the importance of regular fish sampling, proper sampling techniques, and how to use data for effective pond management.",
+          "order": 10,
+          "video_url": "https://www.youtube.com/watch?v=CYSNYWvt8d4",
+          "video_duration": 0,
+          "quiz_questions": [
+            {
+              "question": "Why is regular fish sampling important?",
+              "option_1": "To monitor fish growth",
+              "option_2": "To detect diseases early",
+              "option_3": "To assess feed efficiency",
+              "option_4": "All of the above",
+              "correct_option": 4,
+              "explanation": "Regular sampling helps monitor growth, detect diseases early, assess feed efficiency, and make informed management decisions."
+            }
+          ]
+        },
+        {
+          "title": "Good Aquaculture Practice: Predator and Unwanted Fish Eradication",
+          "description": "Learn to identify and effectively remove predators and unwanted fish species from your pond to protect your fish stock.",
+          "order": 11,
+          "video_url": "https://www.youtube.com/watch?v=vxD8M3WNmfQ",
+          "video_duration": 0,
+          "quiz_questions": [
+            {
+              "question": "Why is predator eradication important in fish farming?",
+              "option_1": "To prevent fish loss",
+              "option_2": "To reduce competition",
+              "option_3": "To protect fingerlings",
+              "option_4": "All of the above",
+              "correct_option": 4,
+              "explanation": "Predator eradication is important to prevent fish loss, reduce competition for resources, and protect vulnerable fingerlings."
+            }
+          ]
+        },
+        {
+          "title": "Good Aquaculture Practice: Natural Food Check",
+          "description": "Master the techniques of assessing natural food availability in your pond and learn when and how to supplement feeding.",
+          "order": 12,
+          "video_url": "https://www.youtube.com/watch?v=1-Hu2KR37CY",
+          "video_duration": 0,
+          "quiz_questions": [
+            {
+              "question": "What is the purpose of checking natural food in fish ponds?",
+              "option_1": "To determine feeding needs",
+              "option_2": "To assess water quality",
+              "option_3": "To monitor ecosystem health",
+              "option_4": "All of the above",
+              "correct_option": 4,
+              "explanation": "Checking natural food helps determine feeding needs, assess water quality, and monitor overall ecosystem health."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
