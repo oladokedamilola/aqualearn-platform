@@ -121,12 +121,12 @@ REST_FRAMEWORK = {
 # ============================================================================
 # CORS CONFIGURATION
 # ============================================================================
-CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_ORIGINS', '').split(',') + [
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
-    'https://aqualearn-platform.netlify.app', 
-]
-
+# CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_ORIGINS', '').split(',') + [
+#     'http://localhost:5173',
+#     'http://127.0.0.1:5173',
+#     'https://aqualearn-platform.netlify.app', 
+# ]
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 # ============================================================================
