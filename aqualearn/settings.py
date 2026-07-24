@@ -121,11 +121,10 @@ REST_FRAMEWORK = {
 # ============================================================================
 # CORS CONFIGURATION
 # ============================================================================
-# ✅ Production: Allow Netlify frontend
 CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_ORIGINS', '').split(',') + [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
-    'https://*.netlify.app',  # Netlify domain
+    'https://aqualearn-platform.netlify.app', 
 ]
 
 CORS_ALLOW_CREDENTIALS = True
