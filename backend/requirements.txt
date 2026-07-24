@@ -1,8 +1,0 @@
-Django
-djangorestframework
-django-cors-headers
-python-dotenv
-Pillow
-djangorestframework-simplejwt
-django-filter
-psycopg2-binary
