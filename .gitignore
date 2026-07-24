@@ -55,3 +55,9 @@ logs/
 # Production
 staticfiles/
 media/
+
+# ============================================================================
+# Keep seed_data for Render deployment
+# ============================================================================
+# !seed_data/          ← KEEP THIS COMMENTED OR REMOVED
+# !seed_data/**        ← KEEP THIS COMMENTED OR REMOVED
