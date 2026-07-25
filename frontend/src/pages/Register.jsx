@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { toast } from 'react-toastify';
@@ -9,9 +9,8 @@ import EyeToggle from '../components/UI/EyeToggle';
 
 const Register = () => {
   const navigate = useNavigate();
-  const { register, requiresVerification, pendingUserEmail, authService, isAuthenticated } = useAuth();
+  const { register, authService, isAuthenticated } = useAuth();
   const [loading, setLoading] = useState(false);
-  const [resending, setResending] = useState(false);
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -23,16 +22,9 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [showCriteria, setShowCriteria] = useState(false);
-  const [registrationSuccess, setRegistrationSuccess] = useState(false);
-  const [registeredEmail, setRegisteredEmail] = useState('');
-
-  // Debug: Check if authService is available
-  console.log('🔵 Register page loaded');
-  console.log('🔵 authService:', authService);
-  console.log('🔵 isAuthenticated:', isAuthenticated);
 
   // If already authenticated, redirect to dashboard or saved redirect
-  useEffect(() => {
+  React.useEffect(() => {
     if (isAuthenticated) {
       const redirectPath = authService?.getRedirectAfterAuth() || '/dashboard';
       authService?.clearRedirectAfterAuth();
@@ -40,20 +32,10 @@ const Register = () => {
     }
   }, [isAuthenticated, navigate, authService]);
 
-  // If user is in verification state, show verification message
-  useEffect(() => {
-    if (requiresVerification && pendingUserEmail) {
-      setRegistrationSuccess(true);
-      setRegisteredEmail(pendingUserEmail);
-    }
-  }, [requiresVerification, pendingUserEmail]);
-
-  // Toggle password visibility
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  // Toggle confirm password visibility
   const toggleConfirmPasswordVisibility = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
@@ -89,7 +71,6 @@ const Register = () => {
     setLoading(true);
     setErrors({});
 
-    // Validation
     if (formData.password !== formData.password2) {
       setErrors({ password2: 'Passwords do not match' });
       setLoading(false);
@@ -111,9 +92,17 @@ const Register = () => {
     });
 
     if (result.success) {
-      setRegistrationSuccess(true);
-      setRegisteredEmail(formData.email);
-      toast.success('📧 Registration successful! Please check your email to verify your account.');
+      toast.success('🎉 Registration successful! Please complete your profile.');
+      
+      // ✅ Check if onboarding is required (it always is for new users)
+      if (result.data?.onboarding_required) {
+        navigate('/onboarding');
+      } else {
+        // Fallback - redirect to dashboard or saved redirect
+        const redirectPath = authService?.getRedirectAfterAuth() || '/dashboard';
+        authService?.clearRedirectAfterAuth();
+        navigate(redirectPath);
+      }
     } else {
       if (result.error && typeof result.error === 'object') {
         setErrors(result.error);
@@ -131,87 +120,6 @@ const Register = () => {
     setLoading(false);
   };
 
-  const handleResendVerification = async () => {
-    setResending(true);
-    try {
-      const result = await authService?.resendVerification(registeredEmail || pendingUserEmail || formData.email);
-      if (result?.success) {
-        toast.success('📧 Verification email resent successfully!');
-      } else {
-        toast.error(result?.error || 'Failed to resend verification email');
-      }
-    } catch (error) {
-      toast.error('Failed to resend verification email');
-    }
-    setResending(false);
-  };
-
-  // If registration successful or in verification state, show verification message
-  if (registrationSuccess || requiresVerification) {
-    return (
-      <>
-        <PageTitle 
-          title="Verify Your Email" 
-          description="Check your email to verify your AquaLearn account." 
-        />
-        
-        <div className="min-h-[calc(100vh-120px)] bg-sea-foam flex items-center justify-center p-4">
-          <AnimatedSection animation="fade-up" className="w-full max-w-md">
-            <div className="bg-white rounded-brand-lg shadow-card p-6 md:p-8 text-center">
-              {/* Icon */}
-              <div className="text-6xl md:text-7xl mb-4 animate-bounce-slow">📧</div>
-              
-              <h2 className="text-2xl font-bold text-deep-ocean mb-2">
-                Verify Your Email
-              </h2>
-              
-              <p className="text-dark-navy/70 mb-2">
-                We've sent a verification link to:
-              </p>
-              <p className="font-medium text-deep-ocean mb-4">
-                {registeredEmail || pendingUserEmail || formData.email}
-              </p>
-              
-              <div className="bg-sea-foam rounded-brand p-4 mb-6 text-sm text-dark-navy/60">
-                <p>📌 Please check your email and click the verification link to activate your account.</p>
-                <p className="mt-2">Check your spam folder if you don't see the email.</p>
-              </div>
-              
-              <button
-                onClick={handleResendVerification}
-                disabled={resending}
-                className="text-clear-teal font-medium hover:underline text-sm transition-colors"
-              >
-                {resending ? 'Sending...' : "🔄 Didn't receive the email? Resend"}
-              </button>
-              
-              <div className="mt-6 pt-6 border-t border-gray-200 flex flex-col sm:flex-row gap-3 justify-center">
-                <Link
-                  to="/login"
-                  className="inline-block bg-deep-ocean text-white px-6 py-2.5 rounded-brand font-medium hover:bg-deep-ocean/90 transition-all duration-300 hover:scale-105"
-                >
-                  Back to Login
-                </Link>
-                <button
-                  onClick={() => {
-                    setRegistrationSuccess(false);
-                  }}
-                  className="inline-block bg-gray-100 text-dark-navy px-6 py-2.5 rounded-brand font-medium hover:bg-gray-200 transition-all duration-300"
-                >
-                  Try Another Email
-                </button>
-              </div>
-              
-              <p className="text-xs text-dark-navy/40 mt-4">
-                The verification link expires in 24 hours.
-              </p>
-            </div>
-          </AnimatedSection>
-        </div>
-      </>
-    );
-  }
-
   return (
     <>
       <PageTitle 
@@ -222,7 +130,6 @@ const Register = () => {
       <div className="min-h-[calc(100vh-120px)] bg-sea-foam flex items-center justify-center p-4">
         <AnimatedSection animation="fade-up" className="w-full max-w-md">
           <div className="bg-white rounded-brand-lg shadow-card p-6 md:p-8">
-            {/* Header */}
             <div className="text-center mb-6 md:mb-8">
               <div className="text-4xl md:text-5xl mb-2">🐟</div>
               <h1 className="text-2xl md:text-3xl font-bold text-deep-ocean">
@@ -297,7 +204,7 @@ const Register = () => {
                 )}
               </div>
 
-              {/* Password with Eye Toggle */}
+              {/* Password */}
               <div className="mb-1">
                 <label className="block text-deep-ocean font-medium text-sm mb-1.5">
                   Password <span className="text-coral-orange">*</span>
@@ -326,13 +233,12 @@ const Register = () => {
                 )}
               </div>
 
-              {/* Modern Password Strength */}
               <PasswordStrength 
                 password={formData.password} 
                 isVisible={showCriteria}
               />
 
-              {/* Confirm Password with Eye Toggle */}
+              {/* Confirm Password */}
               <div className="mt-3">
                 <label className="block text-deep-ocean font-medium text-sm mb-1.5">
                   Confirm Password <span className="text-coral-orange">*</span>
@@ -359,7 +265,6 @@ const Register = () => {
                 )}
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={loading}
@@ -379,7 +284,6 @@ const Register = () => {
               </button>
             </form>
 
-            {/* Divider */}
             <div className="relative my-6">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-200"></div>
@@ -389,7 +293,6 @@ const Register = () => {
               </div>
             </div>
 
-            {/* Login Link */}
             <p className="text-center">
               <Link 
                 to="/login" 
@@ -399,7 +302,6 @@ const Register = () => {
               </Link>
             </p>
 
-            {/* Terms */}
             <p className="text-center text-xs text-dark-navy/40 mt-4">
               By creating an account, you agree to our{' '}
               <Link to="/terms" className="text-clear-teal hover:underline">Terms of Service</Link>
