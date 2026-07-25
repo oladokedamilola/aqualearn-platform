@@ -1,8 +1,5 @@
 /**
  * AquaLearn Main Application Component
- * 
- * Sets up routing, authentication context, and toast notifications.
- * Includes protected routes, onboarding routes, and public routes.
  */
 
 import React, { useState, useEffect } from 'react';
@@ -10,20 +7,14 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-route
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// Context Providers
 import { AuthProvider, useAuth } from './contexts/AuthContext';
-
-// Layout Components
 import Layout from './components/Layout/Layout';
 import Preloader from './components/UI/Preloader';
 
-// Pages
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Onboarding from './pages/Onboarding';
-import ForgotPassword from './pages/ForgotPassword';
-import ResetPassword from './pages/ResetPassword';
 import Landing from './pages/Landing';
 import About from './pages/About';
 import FAQ from './pages/FAQ';
@@ -36,38 +27,23 @@ import Lesson from './pages/Lesson';
 import Profile from './pages/Profile';
 import Certificates from './pages/Certificates';
 import VerifyCertificate from './pages/VerifyCertificate';
-import VerifyEmail from './pages/VerifyEmail';
-import VerifyEmailPending from './pages/VerifyEmailPending';
 import Quiz from './pages/Quiz';
 
-// Styles
+// ✅ Removed: ForgotPassword, ResetPassword, VerifyEmail, VerifyEmailPending
+
 import './index.css';
 import './styles/animations.css';
 
-
-// ============================================================================
-// GLOBAL PRELOADER COMPONENT
-// ============================================================================
-
-/**
- * GlobalPreloader Component
- * 
- * Shows preloader on initial load and on every route change.
- * Displays for a minimum of 4 seconds.
- */
 const GlobalPreloader = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
-  const minDisplayTime = 4000; // 4 seconds
+  const minDisplayTime = 4000;
 
-  // Show loader on initial load and route changes
   useEffect(() => {
     setIsLoading(true);
-    
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, minDisplayTime);
-
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
@@ -78,17 +54,6 @@ const GlobalPreloader = ({ children }) => {
   return children;
 };
 
-
-// ============================================================================
-// ROUTE PROTECTION COMPONENTS
-// ============================================================================
-
-/**
- * Protected Route Component
- * 
- * Ensures only authenticated users can access certain routes.
- * Redirects unauthenticated users to the login page.
- */
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
   
@@ -97,9 +62,7 @@ const ProtectedRoute = ({ children }) => {
   }
   
   if (!isAuthenticated) {
-    // Save the current path to redirect back after login
     const currentPath = window.location.pathname;
-    // Store in sessionStorage instead of localStorage to avoid persistence issues
     sessionStorage.setItem('redirect_after_auth', currentPath);
     return <Navigate to="/login" replace />;
   }
@@ -107,14 +70,8 @@ const ProtectedRoute = ({ children }) => {
   return children;
 };
 
-
-/**
- * Onboarding Route Component
- * 
- * Ensures users only access onboarding if they haven't completed it.
- */
 const OnboardingRoute = ({ children }) => {
-  const { user, loading, onboardingRequired } = useAuth();
+  const { loading, onboardingRequired } = useAuth();
   
   if (loading) {
     return <Preloader minDisplayTime={4000} />;
@@ -127,12 +84,6 @@ const OnboardingRoute = ({ children }) => {
   return children;
 };
 
-
-/**
- * Public Route Component
- * 
- * Redirects authenticated users away from public routes.
- */
 const PublicRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
   
@@ -147,243 +98,46 @@ const PublicRoute = ({ children }) => {
   return children;
 };
 
-
-// ============================================================================
-// APPLICATION ROUTES
-// ============================================================================
-
-/**
- * AppRoutes Component
- * 
- * Defines all application routes with their respective protection levels.
- */
 function AppRoutes() {
   return (
     <GlobalPreloader>
       <Routes>
-        {/* ===== PUBLIC ROUTES (No Authentication Required) ===== */}
-        <Route 
-          path="/" 
-          element={
-            <Layout>
-              <Landing />
-            </Layout>
-          } 
-        />
+        {/* ===== PUBLIC ROUTES ===== */}
+        <Route path="/" element={<Layout><Landing /></Layout>} />
+        <Route path="/about" element={<Layout><About /></Layout>} />
+        <Route path="/faq" element={<Layout><FAQ /></Layout>} />
+        <Route path="/privacy" element={<Layout><Privacy /></Layout>} />
+        <Route path="/terms" element={<Layout><Terms /></Layout>} />
+        <Route path="/contact" element={<Layout><Contact /></Layout>} />
+        <Route path="/courses" element={<Layout><Courses /></Layout>} />
+        <Route path="/courses/:id" element={<Layout><CourseDetail /></Layout>} />
+        <Route path="/verify/:certificateId/:verificationCode" element={<Layout><VerifyCertificate /></Layout>} />
         
-        <Route 
-          path="/about" 
-          element={
-            <Layout>
-              <About />
-            </Layout>
-          } 
-        />
-        <Route 
-          path="/faq" 
-          element={
-            <Layout>
-              <FAQ />
-            </Layout>
-          } 
-        />
-        <Route 
-          path="/privacy" 
-          element={
-            <Layout>
-              <Privacy />
-            </Layout>
-          } 
-        />
-        <Route 
-          path="/terms" 
-          element={
-            <Layout>
-              <Terms />
-            </Layout>
-          } 
-        />
-        <Route 
-          path="/contact" 
-          element={
-            <Layout>
-              <Contact />
-            </Layout>
-          } 
-        />
+        {/* ✅ Removed: /verify-email, /verify-email-pending, /forgot-password, /reset-password */}
         
-        {/* Courses - PUBLIC (anyone can view) */}
-        <Route 
-          path="/courses" 
-          element={
-            <Layout>
-              <Courses />
-            </Layout>
-          } 
-        />
-        
-        <Route 
-          path="/courses/:id" 
-          element={
-            <Layout>
-              <CourseDetail />
-            </Layout>
-          } 
-        />
-        <Route 
-          path="/verify-email-pending" 
-          element={<VerifyEmailPending />} 
-        />
-        
-        {/* Certificate Verification - PUBLIC */}
-        <Route 
-          path="/verify/:certificateId/:verificationCode" 
-          element={
-            <Layout>
-              <VerifyCertificate />
-            </Layout>
-          } 
-        />
-        
-        {/* Email Verification - PUBLIC */}
-        <Route 
-          path="/verify-email/:userId/:token" 
-          element={<VerifyEmail />} 
-        />
-        
-        {/* Auth Pages - Redirect if already authenticated */}
-        <Route 
-          path="/login" 
-          element={
-            <PublicRoute>
-              <Layout>
-                <Login />
-              </Layout>
-            </PublicRoute>
-          } 
-        />
-        <Route 
-          path="/register" 
-          element={
-            <PublicRoute>
-              <Layout>
-                <Register />
-              </Layout>
-            </PublicRoute>
-          } 
-        />
-        <Route 
-          path="/forgot-password" 
-          element={
-            <Layout>
-              <ForgotPassword />
-            </Layout>
-          } 
-        />
-        <Route 
-          path="/reset-password/:uidb64/:token" 
-          element={
-            <Layout>
-              <ResetPassword />
-            </Layout>
-          } 
-        />
+        <Route path="/login" element={<PublicRoute><Layout><Login /></Layout></PublicRoute>} />
+        <Route path="/register" element={<PublicRoute><Layout><Register /></Layout></PublicRoute>} />
 
-        {/* ===== PROTECTED ROUTES (Authentication Required) ===== */}
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Layout>
-                <Dashboard />
-              </Layout>
-            </ProtectedRoute>
-          }
-        />
+        {/* ===== PROTECTED ROUTES ===== */}
+        <Route path="/dashboard" element={<ProtectedRoute><Layout><Dashboard /></Layout></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Layout><Profile /></Layout></ProtectedRoute>} />
+        <Route path="/certificates" element={<ProtectedRoute><Layout><Certificates /></Layout></ProtectedRoute>} />
+        <Route path="/courses/:courseId/lessons/:lessonId" element={<ProtectedRoute><Layout><Lesson /></Layout></ProtectedRoute>} />
+        <Route path="/courses/:courseId/lessons/:lessonId/quiz" element={<ProtectedRoute><Layout><Quiz /></Layout></ProtectedRoute>} />
         
-        <Route 
-          path="/profile" 
-          element={
-            <ProtectedRoute>
-              <Layout>
-                <Profile />
-              </Layout>
-            </ProtectedRoute>
-          } 
-        />
+        <Route path="/onboarding" element={<ProtectedRoute><OnboardingRoute><Layout><Onboarding /></Layout></OnboardingRoute></ProtectedRoute>} />
         
-        <Route 
-          path="/certificates" 
-          element={
-            <ProtectedRoute>
-              <Layout>
-                <Certificates />
-              </Layout>
-            </ProtectedRoute>
-          } 
-        />
-        
-        {/* Lesson - Requires Authentication */}
-        <Route 
-          path="/courses/:courseId/lessons/:lessonId" 
-          element={
-            <ProtectedRoute>
-              <Layout>
-                <Lesson />
-              </Layout>
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/courses/:courseId/lessons/:lessonId/quiz" 
-          element={
-            <ProtectedRoute>
-              <Layout>
-                <Quiz />
-              </Layout>
-            </ProtectedRoute>
-          } 
-        />
-            
-        {/* Onboarding - Requires Authentication AND Onboarding Not Completed */}
-        <Route
-          path="/onboarding"
-          element={
-            <ProtectedRoute>
-              <OnboardingRoute>
-                <Layout>
-                  <Onboarding />
-                </Layout>
-              </OnboardingRoute>
-            </ProtectedRoute>
-          }
-        />
-        
-        {/* ===== CATCH-ALL ROUTE ===== */}
-        <Route 
-          path="*" 
-          element={<Navigate to="/" replace />} 
-        />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </GlobalPreloader>
   );
 }
 
-
-// ============================================================================
-// MAIN APP COMPONENT
-// ============================================================================
-
-/**
- * Main App Component
- */
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
         <AppRoutes />
-        
-        {/* Toast Notification Container */}
         <ToastContainer
           position="top-right"
           autoClose={3000}
