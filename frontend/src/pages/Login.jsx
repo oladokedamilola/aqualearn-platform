@@ -19,19 +19,15 @@ const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  // ✅ Show logout message from navigation state
   useEffect(() => {
     if (location.state?.logoutMessage) {
       toast.success(location.state.logoutMessage);
-      // Clear the state so it doesn't show again on refresh
       window.history.replaceState({}, document.title);
     }
   }, [location.state]);
 
-  // If already authenticated, redirect to appropriate page
   useEffect(() => {
     if (isAuthenticated) {
-      // Check if there's a redirect after auth (from course page)
       const redirectPath = authService.getRedirectAfterAuth();
       if (redirectPath) {
         authService.clearRedirectAfterAuth();
@@ -60,26 +56,13 @@ const Login = () => {
     if (result.success) {
       toast.success('Welcome back!');
       
-      // ✅ Check if email verification is required
-      if (result.data.requires_verification || result.data.verified === false) {
-        toast.info('Please verify your email. A new verification link has been sent.');
-        navigate('/verify-email-pending', { 
-          state: { 
-            email: formData.email, 
-            userId: result.data.user_id 
-          } 
-        });
-        return;
-      }
-      
-      // ✅ Check onboarding FIRST before dashboard
+      // ✅ Check onboarding first
       if (result.data.onboarding_required) {
-        console.log('🔵 Onboarding required, redirecting to onboarding');
         navigate('/onboarding');
         return;
       }
       
-      // ✅ Check for redirect after auth (from course page)
+      // ✅ Check for redirect after auth
       const redirectPath = authService.getRedirectAfterAuth();
       if (redirectPath) {
         authService.clearRedirectAfterAuth();
@@ -87,7 +70,6 @@ const Login = () => {
         return;
       }
       
-      // ✅ Default: go to dashboard
       navigate('/dashboard');
     } else {
       setError(result.error || 'Login failed. Please try again.');
@@ -107,7 +89,6 @@ const Login = () => {
       <div className="min-h-[calc(100vh-120px)] bg-sea-foam flex items-center justify-center p-4">
         <AnimatedSection animation="fade-up" className="w-full max-w-md">
           <div className="bg-white rounded-brand-lg shadow-card p-6 md:p-8">
-            {/* Logo */}
             <div className="text-center mb-6 md:mb-8">
               <div className="text-4xl md:text-5xl mb-2">🐟</div>
               <h1 className="text-2xl md:text-3xl font-bold text-deep-ocean">
@@ -119,7 +100,6 @@ const Login = () => {
             </div>
 
             <form onSubmit={handleSubmit}>
-              {/* Email */}
               <div className="mb-4">
                 <label className="block text-deep-ocean font-medium text-sm mb-1.5">
                   Email Address
@@ -135,7 +115,6 @@ const Login = () => {
                 />
               </div>
 
-              {/* Password with Eye Toggle */}
               <div className="mb-2">
                 <label className="block text-deep-ocean font-medium text-sm mb-1.5">
                   Password
@@ -157,14 +136,12 @@ const Login = () => {
                 </div>
               </div>
 
-              {/* Error Message */}
               {error && (
                 <div className="bg-coral-orange/10 border-l-4 border-coral-orange p-3 rounded mb-4 mt-4">
                   <p className="text-coral-orange text-sm">{error}</p>
                 </div>
               )}
 
-              {/* Remember Me & Forgot Password */}
               <div className="flex items-center justify-between mb-6 mt-4">
                 <label className="flex items-center cursor-pointer">
                   <input
@@ -180,7 +157,6 @@ const Login = () => {
                 </Link>
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={loading}
@@ -200,7 +176,6 @@ const Login = () => {
               </button>
             </form>
 
-            {/* Divider */}
             <div className="relative my-6">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-200"></div>
@@ -210,7 +185,6 @@ const Login = () => {
               </div>
             </div>
 
-            {/* Register Link */}
             <p className="text-center">
               <Link 
                 to="/register" 
@@ -220,7 +194,6 @@ const Login = () => {
               </Link>
             </p>
 
-            {/* Terms */}
             <p className="text-center text-xs text-dark-navy/40 mt-4">
               By signing in, you agree to our{' '}
               <Link to="/terms" className="text-clear-teal hover:underline">Terms of Service</Link>
